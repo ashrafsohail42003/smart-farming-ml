@@ -1,0 +1,86 @@
+project:
+  name: "crop-yield-prediction"
+  version: "1.0.0"
+  author: "Ashraf Sohail Alkahlout"
+  description: "Production-level crop yield forecasting pipeline"
+
+data:
+  raw_path: "data/raw/yield_df.csv"
+  processed_path: "data/processed/cleaned_data.csv"
+  null_threshold: 0.6
+  target_column: "hg/ha_yield"
+  test_size: 0.15
+  random_state: 42
+
+features:
+  target: "hg/ha_yield"
+  categorical_high_cardinality:
+    - "area"
+  categorical_low_cardinality:
+    - "item"
+  numerical_skewed:
+    - "pesticides_tonnes"
+  numerical_normal:
+    - "average_rain_fall_mm_per_year"
+    - "avg_temp"
+  temporal:
+    - "year"
+  outlier_lower_pct: 0.01
+  outlier_upper_pct: 0.99
+  skew_threshold: 1.0
+  cardinality_ohe_limit: 15
+
+models:
+  cv_folds: 5
+  early_stopping_rounds: 100
+  lgbm:
+    n_estimators: 500
+    learning_rate: 0.03
+    num_leaves: 127
+    max_depth: -1
+    min_child_samples: 20
+    feature_fraction: 0.8
+    bagging_fraction: 0.8
+    bagging_freq: 5
+    reg_alpha: 0.1
+    reg_lambda: 0.1
+    random_state: 42
+    n_jobs: -1
+    verbose: -1
+  catboost:
+    iterations: 500
+    learning_rate: 0.03
+    depth: 8
+    l2_leaf_reg: 3
+    random_seed: 42
+    verbose: 0
+  xgboost:
+    n_estimators: 500
+    learning_rate: 0.03
+    max_depth: 7
+    subsample: 0.8
+    colsample_bytree: 0.8
+    reg_alpha: 0.1
+    reg_lambda: 1.0
+    tree_method: "hist"
+    random_state: 42
+    n_jobs: -1
+  ridge:
+    alpha: 1.0
+
+optuna:
+  n_trials: 20
+  timeout: 1800
+  direction: "minimize"
+  cv_folds: 5
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: "crop-yield-prediction"
+  model_registry_name: "CropYieldPredictor"
+
+paths:
+  models_dir: "models"
+  reports_dir: "reports"
+  figures_dir: "reports/figures"
+  logs_dir: "logs"

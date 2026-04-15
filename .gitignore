@@ -1,0 +1,46 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ======================
+# Virtual Environment
+# ======================
+venv/
+env/
+.venv/
+
+# ======================
+# Jupyter Notebook checkpoints
+# ======================
+.ipynb_checkpoints/
+
+# ======================
+# Model files (ML artifacts)
+# ======================
+*.pkl
+*.joblib
+models/
+
+# ======================
+# Logs
+# ======================
+*.log
+
+
+Thumbs.db
+Desktop.ini
+
+# ======================
+# IDEs
+# ======================
+.vscode/
+.idea/
+
+
+data/processed/
+
+mlruns/

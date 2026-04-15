@@ -1,0 +1,41 @@
+# Core ML
+scikit-learn>=1.4.0
+lightgbm>=4.3.0
+xgboost>=2.0.0
+catboost>=1.2.0
+category_encoders>=2.6.0
+
+# Hyperparameter Tuning
+optuna>=3.5.0
+optuna-dashboard>=0.14.0
+
+# Experiment Tracking
+mlflow>=2.11.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.26.0
+scipy>=1.12.0
+
+# Visualization
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# API (للـ Deployment)
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.6.0
+
+# Utilities
+joblib>=1.3.0
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+
+# Testing
+pytest>=8.0.0
+pytest-cov>=4.1.0
+
+# Code Quality
+black>=24.0.0
+ruff>=0.3.0
