@@ -463,7 +463,8 @@ The current repository is a strong ML pipeline project, but the following extens
 
 ## Author
 
-**Ashraf Suhail Al-Kahlout (أشرف سهيل الكحلوت)**
+**Ashraf Sohail Al-Kahlout (أشرف سهيل الكحلوت)**
+
 
 ---
 
